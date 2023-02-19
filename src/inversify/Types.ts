@@ -3,5 +3,7 @@ export const TYPES = {
     QuestionOptionsManager: Symbol.for('QuestionOptionsManager'),
     QuestionOptionsAccessor: Symbol.for('QuestionOptionsAccessor'),
     PrismaClient: Symbol.for('PrismaClient'),
-    PromptGenerationManager: Symbol.for('PromptGenerationManager')
+    PromptGenerationManager: Symbol.for('PromptGenerationManager'),
+    OpenAI: Symbol.for('OpenAI'),
+    ArtificialResponseManager: Symbol.for('ArtificialResponseManager')
 }

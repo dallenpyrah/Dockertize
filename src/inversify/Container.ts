@@ -10,6 +10,10 @@ import "reflect-metadata";
 import {PrismaClient} from "@prisma/client";
 import { IPromptGenerationManager } from "../interfaces/managers/IPromptGenerationManager";
 import {PromptGenerationManager} from "../managers/PromptGenerationManager";
+import {OpenAIApi} from "openai";
+import {openai} from "../config/openai";
+import { IArtificialResponseManager } from "../interfaces/managers/IArtificialResponseManager";
+import {ArtificialResponseManager} from "../managers/ArtificialResponseManager";
 
 const prismaClient = new PrismaClient();
 
@@ -20,5 +24,7 @@ container.bind<IQuestionOptionsManager>(TYPES.QuestionOptionsManager).to(Questio
 container.bind<IQuestionOptionsAccessor>(TYPES.QuestionOptionsAccessor).to(QuestionOptionsAccessor)
 container.bind<PrismaClient>(TYPES.PrismaClient).toConstantValue(prismaClient);
 container.bind<IPromptGenerationManager>(TYPES.PromptGenerationManager).to(PromptGenerationManager)
+container.bind<OpenAIApi>(TYPES.OpenAI).toConstantValue(openai)
+container.bind<IArtificialResponseManager>(TYPES.ArtificialResponseManager).to(ArtificialResponseManager)
 
 export { container }

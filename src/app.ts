@@ -6,10 +6,12 @@ import {IQuestionManager} from "./interfaces/managers/IQuestionManager";
 import {TYPES} from "./inversify/Types";
 import { IQuestionOptionsManager } from './interfaces/managers/IQuestionOptionsManager';
 import {IPromptGenerationManager} from "./interfaces/managers/IPromptGenerationManager";
+import { IArtificialResponseManager } from "./interfaces/managers/IArtificialResponseManager";
 
 const questionsManager = container.get<IQuestionManager>(TYPES.QuestionsManager);
 const questionOptionsManager = container.get<IQuestionOptionsManager>(TYPES.QuestionOptionsManager)
 const promptGenerationManager = container.get<IPromptGenerationManager>(TYPES.PromptGenerationManager)
+const artificialResponseManager = container.get<IArtificialResponseManager>(TYPES.ArtificialResponseManager)
 
 async function main() {
     intro('DockerIt Started');
@@ -27,7 +29,9 @@ async function main() {
     userResponse.exposedPorts = await  questionsManager.askExposedPortsQuestion()
 
     const createDockerFilePrompt = promptGenerationManager.generateCreateDockerFilePrompt(userResponse);
-    console.log(createDockerFilePrompt)
+    const createDockerFileCompletion = await artificialResponseManager.generateDockerFileFromPrompt(createDockerFilePrompt)
+
+    console.log(createDockerFileCompletion)
 
     console.log('\nGenerated Dockerfile:\n');
 
