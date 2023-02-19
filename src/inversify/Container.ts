@@ -8,6 +8,8 @@ import { IQuestionOptionsAccessor } from "../interfaces/accessors/IQuestionOptio
 import {QuestionOptionsAccessor} from "../accessors/QuestionOptionsAccessor";
 import "reflect-metadata";
 import {PrismaClient} from "@prisma/client";
+import { IPromptGenerationManager } from "../interfaces/managers/IPromptGenerationManager";
+import {PromptGenerationManager} from "../managers/PromptGenerationManager";
 
 const prismaClient = new PrismaClient();
 
@@ -17,5 +19,6 @@ container.bind<IQuestionManager>(TYPES.QuestionsManager).to(QuestionManager)
 container.bind<IQuestionOptionsManager>(TYPES.QuestionOptionsManager).to(QuestionOptionsManager)
 container.bind<IQuestionOptionsAccessor>(TYPES.QuestionOptionsAccessor).to(QuestionOptionsAccessor)
 container.bind<PrismaClient>(TYPES.PrismaClient).toConstantValue(prismaClient);
+container.bind<IPromptGenerationManager>(TYPES.PromptGenerationManager).to(PromptGenerationManager)
 
 export { container }

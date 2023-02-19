@@ -23,6 +23,9 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
             frameworkSelectOptions.push(selectOption)
         }
 
+        const notApplicableOption = { value: 'N/A' } as SelectOptionsType
+        frameworkSelectOptions.push(notApplicableOption)
+
         return frameworkSelectOptions;
     }
 
