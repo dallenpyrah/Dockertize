@@ -14,6 +14,8 @@ import {OpenAIApi} from "openai";
 import {openai} from "../config/openai";
 import { IArtificialResponseManager } from "../interfaces/managers/IArtificialResponseManager";
 import {ArtificialResponseManager} from "../managers/ArtificialResponseManager";
+import { IGenerateFileManager } from "../interfaces/managers/IGenerateFileManager";
+import {GenerateFileManager} from "../managers/GenerateFileManager";
 
 const prismaClient = new PrismaClient();
 
@@ -26,5 +28,6 @@ container.bind<PrismaClient>(TYPES.PrismaClient).toConstantValue(prismaClient);
 container.bind<IPromptGenerationManager>(TYPES.PromptGenerationManager).to(PromptGenerationManager)
 container.bind<OpenAIApi>(TYPES.OpenAI).toConstantValue(openai)
 container.bind<IArtificialResponseManager>(TYPES.ArtificialResponseManager).to(ArtificialResponseManager)
+container.bind<IGenerateFileManager>(TYPES.GenerateFileManager).to(GenerateFileManager)
 
 export { container }

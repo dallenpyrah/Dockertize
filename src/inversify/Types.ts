@@ -5,5 +5,6 @@ export const TYPES = {
     PrismaClient: Symbol.for('PrismaClient'),
     PromptGenerationManager: Symbol.for('PromptGenerationManager'),
     OpenAI: Symbol.for('OpenAI'),
-    ArtificialResponseManager: Symbol.for('ArtificialResponseManager')
+    ArtificialResponseManager: Symbol.for('ArtificialResponseManager'),
+    GenerateFileManager: Symbol.for('GenerateFileManager')
 }
