@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "lib": ["es6"],
+    "types": ["reflect-metadata"],
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "target": "es6",
     "module": "commonjs",
     "outDir": "dist",
