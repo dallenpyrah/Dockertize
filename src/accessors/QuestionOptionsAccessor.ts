@@ -13,10 +13,16 @@ export class QuestionOptionsAccessor implements IQuestionOptionsAccessor{
     }
 
     async getLanguages(): Promise<Language[]>{
-        return this.prisma.language.findMany();
+        return await this.prisma.language.findMany();
     }
 
-    getFrameworksByLanguageType(language: string): Promise<Framework[]> {
-        return this.prisma.framework.findMany();
+    async getFrameworksByLanguageType(language: string): Promise<Framework[]> {
+        return await this.prisma.framework.findMany({
+            where: {
+                language: {
+                    language
+                }
+            }
+        });
     }
 }
