@@ -3,21 +3,22 @@
 
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native"]
 }
 
 datasource db {
-  provider = "sqlite"
-  url = env("DATABASE_URL")
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
 }
 
 model Language {
-  id        Int        @id @default(autoincrement())
+  id        Int        @id @default(sequence())
   language  String
   frameworks Framework[]
 }
 
 model Framework {
-  id          Int      @id @default(autoincrement())
+  id          Int      @id @default(sequence())
   framework   String
   languageId  Int
   language    Language @relation(fields: [languageId], references: [id])
