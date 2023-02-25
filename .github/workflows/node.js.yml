@@ -29,11 +29,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: executables
-          path: |
-            dockerit-macos
-            dockerit-linux
-            dockerit-win.exe
+#       - name: Upload Artifacts
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: executables
+#           path: |
+#             dockerit-macos
+#             dockerit-linux
+#             dockerit-win.exe
