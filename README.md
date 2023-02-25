@@ -107,13 +107,13 @@ To use Dockertize, you will need to have Node.js installed on your machine. You 
 Once you have Node.js installed, you can install Dockertize using npm:
 
 ```
-npm install -g @mates/dockermate
+npm install -g dockertize
 ```
 
 To use Dockertize, simply run the following command:
 
 ```
-dockermate
+dockertize
 ```
 
 This will start the Dockerfile generation process. You will be prompted to provide information about your project, such as the base image, dependencies, ports, environment variables, files to copy, and entry point. Once you have provided all the necessary information, Dockertize will generate a Dockerfile for you in the same directory.
