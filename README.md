@@ -107,13 +107,13 @@ To use DockerMate, you will need to have Node.js installed on your machine. You 
 Once you have Node.js installed, you can install DockerMate using npm:
 
 ```
-npm install -g DockerMate
+npm install -g dockermate
 ```
 
 To use DockerMate, simply run the following command:
 
 ```
-DockerMate generate
+dockermate
 ```
 
 This will start the Dockerfile generation process. You will be prompted to provide information about your project, such as the base image, dependencies, ports, environment variables, files to copy, and entry point. Once you have provided all the necessary information, DockerMate will generate a Dockerfile for you.
