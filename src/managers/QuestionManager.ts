@@ -14,13 +14,31 @@ export class QuestionManager implements IQuestionManager {
         return response.trim();
     }
     async askDependenciesQuestion(dependencyOptions: SelectOptionsType[]): Promise<string> {
-        const response = await multiselect({
-            message: 'What dependencies are you using?',
-            options: dependencyOptions
-        })
+        const optionsWithOther = [...dependencyOptions, { title: 'Other', value: 'other' }];
+        const response = <string[]>await multiselect({
+            message: 'Are there any additional dependencies you need installed in your container?',
+            options: optionsWithOther,
+        });
 
-        return response.toString().trim()
+        const selectedValues = response.map((value) => value);
+
+        if (selectedValues.includes('other')) {
+            const customResponse = <string>await text({
+                message: 'Please enter any additional dependencies you need installed (comma delimited list):',
+                validate: (input: string) => {
+                    if (!input) {
+                        return 'Dependencies list cannot be left blank';
+                    }
+                    return undefined;
+                },
+            });
+
+            return `${selectedValues.filter((value) => value !== 'other').join(', ')}, ${customResponse.trim()}`;
+        }
+
+        return selectedValues.join(', ').trim();
     }
+
     async askEntryPointQuestion(): Promise<string> {
         const response = <string>await text({
             message: 'What is the entry point for your project?',
@@ -38,6 +56,7 @@ export class QuestionManager implements IQuestionManager {
     async askPortsQuestion(): Promise<string> {
         const response = <string>await text({
             message: 'What port(s) does your application listen on?',
+            placeholder: 'N/A',
             validate: (input: string) => {
                 if (!input) {
                     return 'Port(s) cannot be left blank';
@@ -52,16 +71,18 @@ export class QuestionManager implements IQuestionManager {
     async askEnvironmentVariablesQuestion(): Promise<string> {
         const response = <string>await text({
             message: 'What environment variables does your application use? (comma delimited list)',
+            placeholder: 'N/A',
             validate: (input: string) => {
-                if (!input) {
+                if (input.trim() === '') {
                     return 'Environment variables list cannot be left blank';
                 }
                 return undefined;
             },
         });
 
-        return response.trim();
+        return response.trim() === 'N/A' ? '' : response.trim();
     }
+
 
     async askProjectLanguageQuestion(projectOptions: SelectOptionsType[]): Promise<string> {
         const response = <string> await select({
@@ -74,6 +95,7 @@ export class QuestionManager implements IQuestionManager {
     async askCopyFilesQuestion(): Promise<string> {
         const response = <string> await text({
             message: 'Which files/folders do you want to copy into the Docker container? (comma delimited list)',
+            placeholder: 'N/A',
             validate: (input: string) => {
                 if (!input) {
                     return 'Files/folders list cannot be left blank';

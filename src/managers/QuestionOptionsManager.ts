@@ -44,6 +44,10 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
         const dependencies = await this.questionOptionsAccessor.getDependenciesByLanguageName(language);
 
         let dependencySelectOptions = [] as SelectOptionsType[]
+        let noneSelectOption = {} as SelectOptionsType
+        noneSelectOption.value = 'N/A'
+
+        dependencySelectOptions.push(noneSelectOption)
 
         for (let i = 0; i < dependencies.length; i++) {
             let selectOption = {} as SelectOptionsType

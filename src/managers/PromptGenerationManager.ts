@@ -6,16 +6,12 @@ import {UserResponseType} from "../types/UserResponseType";
 export class PromptGenerationManager implements IPromptGenerationManager {
     generateCreateDockerFilePrompt(userResponse: UserResponseType): string {
         return `Please generate a Dockerfile for a project written in ${userResponse.language}, using ${userResponse.baseImage} as the base image.
-
-            The project has the following dependencies: ${userResponse.dependencies}.
-            
-            Please include the following ports in the Dockerfile: ${userResponse.ports}.
-            
-            Please set the following environment variables: ${userResponse.environmentVariables}.
-            
-            Please copy the following files/folders into the Docker container: ${userResponse.copyFiles}.
-            
+            The project has the following dependencies: ${userResponse.dependencies}, make sure to install them in the container as they will be needed apart from the already pre-defined packages.
+            Please include the following ports in the Dockerfile: ${userResponse.ports}, if equal to N/A do not specify a port.
+            Please set the following environment variables ONLY IF it is not equal to N/A: ${userResponse.environmentVariables}, if equal to N/A do not add env variables or the ENV keyword.
+            Please copy the following files/folders into the Docker container: ${userResponse.copyFiles}, if equal to N/A do not copy any extra files besides what is necessary.
             The entry point for the Docker container should be: ${userResponse.entryPoint}.
+            If any values are equal to N/A then that means the user does not want/have anything for that specific question.
             
             Please generate a Dockerfile that meets the following requirements:
             1. It should be optimized for production use.
@@ -25,11 +21,6 @@ export class PromptGenerationManager implements IPromptGenerationManager {
             5. It should be well-documented and easy to maintain.
             
             Based on the information provided, please generate a Dockerfile that meets the requirements above. If any information is missing, please find the most optimal solution.
-            
-            If environment variables are specified, please pull the values from the given environment variable file, pull the file into the Docker container and reference it so the values are not exposed in the Dockerfile.
-            
-            Please make sure the start of the generated Dockerfile begins on line 1 and that the environment variables are set correctly and the .env file is included in the Docker container. You can use the COPY command in your Dockerfile to copy the .env file to the container and the ENV command to set the environment variables.
-            
             Thank you for your assistance in generating a high-quality Dockerfile for this project.`
     }
 }
