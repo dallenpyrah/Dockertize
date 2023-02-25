@@ -116,7 +116,7 @@ To use DockerMate, simply run the following command:
 dockermate
 ```
 
-This will start the Dockerfile generation process. You will be prompted to provide information about your project, such as the base image, dependencies, ports, environment variables, files to copy, and entry point. Once you have provided all the necessary information, DockerMate will generate a Dockerfile for you.
+This will start the Dockerfile generation process. You will be prompted to provide information about your project, such as the base image, dependencies, ports, environment variables, files to copy, and entry point. Once you have provided all the necessary information, DockerMate will generate a Dockerfile for you in the same directory.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
