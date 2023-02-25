@@ -1,9 +1,9 @@
 export type UserResponseType = {
-    language: any;
+    language: string;
     copyFiles: string;
-    environmentVariables: any;
-    ports: any;
-    entryPoint: any;
-    dependencies: any;
-    baseImage: any;
+    environmentVariables: string;
+    ports: string;
+    entryPoint: string;
+    dependencies: string;
+    baseImage: string;
 }

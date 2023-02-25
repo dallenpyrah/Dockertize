@@ -12,8 +12,6 @@ export class GenerateFileManager implements IGenerateFileManager {
             await writeFile(filePath, createDockerFileCompletion, (error) => {
                 if (error) {
                     console.error('Error creating file:', error);
-                } else {
-                    console.log('Created Docker file successfully');
                 }
             });
         }

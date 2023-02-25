@@ -21,14 +21,46 @@ export class QuestionManager implements IQuestionManager {
 
         return response.toString().trim()
     }
-    askEntryPointQuestion(): Promise<any> {
-        throw new Error('Method not implemented.');
+    async askEntryPointQuestion(): Promise<string> {
+        const response = <string>await text({
+            message: 'What is the entry point for your project?',
+            validate: (input: string) => {
+                if (!input) {
+                    return 'Entry point cannot be left blank';
+                }
+                return undefined;
+            },
+        });
+
+        return response.trim();
     }
-    askPortsQuestion(): Promise<any> {
-        throw new Error('Method not implemented.');
+
+    async askPortsQuestion(): Promise<string> {
+        const response = <string>await text({
+            message: 'What port(s) does your application listen on?',
+            validate: (input: string) => {
+                if (!input) {
+                    return 'Port(s) cannot be left blank';
+                }
+                return undefined;
+            },
+        });
+
+        return response.trim();
     }
-    askEnvironmentVariablesQuestion(): Promise<any> {
-        throw new Error('Method not implemented.');
+
+    async askEnvironmentVariablesQuestion(): Promise<string> {
+        const response = <string>await text({
+            message: 'What environment variables does your application use? (comma delimited list)',
+            validate: (input: string) => {
+                if (!input) {
+                    return 'Environment variables list cannot be left blank';
+                }
+                return undefined;
+            },
+        });
+
+        return response.trim();
     }
 
     async askProjectLanguageQuestion(projectOptions: SelectOptionsType[]): Promise<string> {
