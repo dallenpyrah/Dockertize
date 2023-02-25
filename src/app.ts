@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import "reflect-metadata";
 import {intro, outro, spinner} from '@clack/prompts';
 import {UserResponseType} from "./types/UserResponseType";

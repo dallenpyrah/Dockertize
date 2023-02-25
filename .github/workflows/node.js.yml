@@ -34,6 +34,6 @@ jobs:
 #         with:
 #           name: executables
 #           path: |
-#             dockerit-macos
-#             dockerit-linux
-#             dockerit-win.exe
+#             dockermate-macos
+#             dockermate-linux
+#             dockermate-win.exe
