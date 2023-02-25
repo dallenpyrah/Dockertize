@@ -30,23 +30,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/dallenpyrah/dockerit">
+  <a href="https://github.com/dallenpyrah/DockerMate">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">DockerIt</h3>
+<h3 align="center">DockerMate</h3>
 
   <p align="center">
-    DockerIt is a Dockerfile generation tool built with Node.js and TypeScript. With DockerIt, you can easily generate a Dockerfile for your project, specifying the base image, dependencies, ports, environment variables, files to copy, and entry point. The generated Dockerfile is optimized for production use, uses a multi-stage build to minimize the final image size, and follows best practices for security and performance.
+    DockerMate is a Dockerfile generation tool built with Node.js and TypeScript. With DockerMate, you can easily generate a Dockerfile for your project, specifying the base image, dependencies, ports, environment variables, files to copy, and entry point. The generated Dockerfile is optimized for production use, uses a multi-stage build to minimize the final image size, and follows best practices for security and performance.
     <br />
-    <a href="https://probable-degree-a99.notion.site/DockerIt-Documentation-e242a154d9f64344bf68b1b560006e3b"><strong>Explore the docs »</strong></a>
+    <a href="https://probable-degree-a99.notion.site/DockerMate-Documentation-e242a154d9f64344bf68b1b560006e3b"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/dallenpyrah/dockerit">View Demo</a>
+    <a href="https://github.com/dallenpyrah/DockerMate">View Demo</a>
     ·
-    <a href="https://github.com/dallenpyrah/dockerit/issues">Report Bug</a>
+    <a href="https://github.com/dallenpyrah/DockerMate/issues">Report Bug</a>
     ·
-    <a href="https://github.com/dallenpyrah/dockerit/issues">Request Feature</a>
+    <a href="https://github.com/dallenpyrah/DockerMate/issues">Request Feature</a>
   </p>
 </div>
 
@@ -102,21 +102,21 @@
 
 ### Installation
 
-To use DockerIt, you will need to have Node.js installed on your machine. You can install it from the official website: Node.js.
+To use DockerMate, you will need to have Node.js installed on your machine. You can install it from the official website: Node.js.
 
-Once you have Node.js installed, you can install DockerIt using npm:
-
-```
-npm install -g DockerIt
-```
-
-To use DockerIt, simply run the following command:
+Once you have Node.js installed, you can install DockerMate using npm:
 
 ```
-DockerIt generate
+npm install -g dockermate
 ```
 
-This will start the Dockerfile generation process. You will be prompted to provide information about your project, such as the base image, dependencies, ports, environment variables, files to copy, and entry point. Once you have provided all the necessary information, DockerIt will generate a Dockerfile for you.
+To use DockerMate, simply run the following command:
+
+```
+dockermate
+```
+
+This will start the Dockerfile generation process. You will be prompted to provide information about your project, such as the base image, dependencies, ports, environment variables, files to copy, and entry point. Once you have provided all the necessary information, DockerMate will generate a Dockerfile for you in the same directory.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -125,7 +125,7 @@ This will start the Dockerfile generation process. You will be prompted to provi
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-_For examples, please refer to the [Documentation](https://probable-degree-a99.notion.site/DockerIt-Documentation-e242a154d9f64344bf68b1b560006e3b)_
+_For examples, please refer to the [Documentation](https://probable-degree-a99.notion.site/DockerMate-Documentation-e242a154d9f64344bf68b1b560006e3b)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,7 +134,7 @@ _For examples, please refer to the [Documentation](https://probable-degree-a99.n
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/dallenpyrah/dockerit/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/dallenpyrah/DockerMate/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,7 +172,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Dallen Pyrah - [@dallenpyrah](https://twitter.com/dallenpyrah) - dallenpyrah@gmail.com
 
-Project Link: [https://github.com/dallenpyrah/dockerit](https://github.com/dallenpyrah/dockerit)
+Project Link: [https://github.com/dallenpyrah/DockerMate](https://github.com/dallenpyrah/DockerMate)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -191,16 +191,16 @@ Project Link: [https://github.com/dallenpyrah/dockerit](https://github.com/dalle
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/dallenpyrah/dockerit.svg?style=for-the-badge
-[contributors-url]: https://github.com/dallenpyrah/dockerit/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/dallenpyrah/dockerit.svg?style=for-the-badge
-[forks-url]: https://github.com/dallenpyrah/dockerit/network/members
-[stars-shield]: https://img.shields.io/github/stars/dallenpyrah/dockerit.svg?style=for-the-badge
-[stars-url]: https://github.com/dallenpyrah/dockerit/stargazers
-[issues-shield]: https://img.shields.io/github/issues/dallenpyrah/dockerit.svg?style=for-the-badge
-[issues-url]: https://github.com/dallenpyrah/dockerit/issues
-[license-shield]: https://img.shields.io/github/license/dallenpyrah/dockerit.svg?style=for-the-badge
-[license-url]: https://github.com/dallenpyrah/dockerit/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/dallenpyrah/DockerMate.svg?style=for-the-badge
+[contributors-url]: https://github.com/dallenpyrah/DockerMate/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/dallenpyrah/DockerMate.svg?style=for-the-badge
+[forks-url]: https://github.com/dallenpyrah/DockerMate/network/members
+[stars-shield]: https://img.shields.io/github/stars/dallenpyrah/DockerMate.svg?style=for-the-badge
+[stars-url]: https://github.com/dallenpyrah/DockerMate/stargazers
+[issues-shield]: https://img.shields.io/github/issues/dallenpyrah/DockerMate.svg?style=for-the-badge
+[issues-url]: https://github.com/dallenpyrah/DockerMate/issues
+[license-shield]: https://img.shields.io/github/license/dallenpyrah/DockerMate.svg?style=for-the-badge
+[license-url]: https://github.com/dallenpyrah/DockerMate/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
