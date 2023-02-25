@@ -19,7 +19,7 @@ const spin = spinner();
 
 async function main() {
     try {
-        intro('Starting DockerIt...')
+        intro('Starting Dockertize...')
 
         const userResponse = {} as UserResponseType;
 
