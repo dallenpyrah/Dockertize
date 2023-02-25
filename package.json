@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "tsc && pkg . -t node16-linux-x64,node16-macos-x64,node16-win-x64 -o dockerit/",
-    "start": "tsc && node dist/app.js"
+    "generate": "tsc && node dist/app.js"
   },
   "keywords": [],
   "author": "",
