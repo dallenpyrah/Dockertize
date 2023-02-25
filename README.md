@@ -91,8 +91,6 @@
 
 * [![Typescript][Typescript.ts]][Typescript-url]
 * [![Prisma][Prisma.p]][Prisma-url]
-* [![Node.js][Node.js]][NodeJS-url]
-* [![Clacks][Clacks.js]][Clacks-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
