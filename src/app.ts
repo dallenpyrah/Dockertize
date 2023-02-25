@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { intro, outro } from '@clack/prompts';
+import {intro, outro, spinner} from '@clack/prompts';
 import {UserResponseType} from "./types/UserResponseType";
 import {container} from "./inversify/Container";
 import {IQuestionManager} from "./interfaces/managers/IQuestionManager";
@@ -16,28 +16,31 @@ const artificialResponseManager = container.get<IArtificialResponseManager>(TYPE
 const generateFileManager = container.get<IGenerateFileManager>(TYPES.GenerateFileManager)
 
 async function main() {
-    intro('DockerIt Started');
-
     const userResponse = {} as UserResponseType;
 
-    const projectOptions = await questionOptionsManager.getLanguageSelectOptions();
-    userResponse.language = await questionsManager.askProjectLanguageQuestion(projectOptions);
+    const languageOptions = await questionOptionsManager.getLanguageSelectOptions();
+    userResponse.language = await questionsManager.askProjectLanguageQuestion(languageOptions);
 
-    const frameworkOptions = await questionOptionsManager.getFrameworkSelectOptionsByLanguageType(userResponse.language)
-    userResponse.framework = await questionsManager.askProjectFrameworkQuestion(frameworkOptions);
-    userResponse.frameworkVersion = await questionsManager.askFrameworkVersionQuestion();
+    const baseImages = await questionOptionsManager.getBaseImageSelectOptions(userResponse.language);
+    userResponse.baseImage = await questionsManager.askBaseImageQuestion(baseImages);
 
-    userResponse.workingDirectory = await questionsManager.askWorkingDirectoryQuestion();
-    userResponse.exposedPorts = await  questionsManager.askExposedPortsQuestion()
+    const dependencyOptions = await questionOptionsManager.getDependencyOptions(userResponse.language);
+    userResponse.dependencies = await questionsManager.askDependenciesQuestion(dependencyOptions);
+
+    userResponse.entryPoint = await questionsManager.askEntryPointQuestion();
+    userResponse.ports = await questionsManager.askPortsQuestion();
+
+    userResponse.environmentVariables = await questionsManager.askEnvironmentVariablesQuestion();
+    userResponse.copyFiles = await questionsManager.askCopyFilesQuestion();
+
+    const spin = spinner();
+    spin.start('Generating Dockerfile')
 
     const createDockerFilePrompt = promptGenerationManager.generateCreateDockerFilePrompt(userResponse);
-    const createDockerFileCompletion = await artificialResponseManager.generateDockerFileFromPrompt(createDockerFilePrompt)
-
+    const createDockerFileCompletion = await artificialResponseManager.generateDockerFileFromPrompt(createDockerFilePrompt);
     const filePath = await generateFileManager.createDockerFileFromString(createDockerFileCompletion);
 
-    console.log(`\nGenerated Dockerfile: ${filePath} \n`);
-
-    outro('Dockerfile generated, you are all set!');
+    spin.stop(`\nGenerated Dockerfile: ${filePath} \n`)
 }
 
 main().catch(console.error);

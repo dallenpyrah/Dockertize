@@ -21,8 +21,6 @@ export class ArtificialResponseManager implements IArtificialResponseManager{
              temperature: 0.5,
          });
 
-        console.log(response.data)
-
         return response.data.choices[0].text;
     }
 

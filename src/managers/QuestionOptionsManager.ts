@@ -12,23 +12,6 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
         this.questionOptionsAccessor = questionOptionsAccessor;
     }
 
-    async getFrameworkSelectOptionsByLanguageType(language: string): Promise<SelectOptionsType[]>  {
-        const frameworks = await this.questionOptionsAccessor.getFrameworksByLanguageType(language);
-
-        let frameworkSelectOptions = [] as SelectOptionsType[]
-
-        for(let i = 0; i < frameworks.length; i++){
-            let selectOption = {} as SelectOptionsType;
-            selectOption.value = frameworks[i].framework
-            frameworkSelectOptions.push(selectOption)
-        }
-
-        const notApplicableOption = { value: 'N/A' } as SelectOptionsType
-        frameworkSelectOptions.push(notApplicableOption)
-
-        return frameworkSelectOptions;
-    }
-
     async getLanguageSelectOptions(): Promise<SelectOptionsType[]> {
         const languages = await this.questionOptionsAccessor.getLanguages();
 
@@ -41,6 +24,34 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
         }
 
         return languageSelectOptions;
+    }
+
+    async getBaseImageSelectOptions(language: string): Promise<SelectOptionsType[]> {
+        const baseImages = await this.questionOptionsAccessor.getBaseImagesByLanguageName(language);
+
+        let baseImageSelectOptions = [] as SelectOptionsType[]
+
+        for (let i = 0; i < baseImages.length; i++) {
+            let selectOption = {} as SelectOptionsType
+            selectOption.value = baseImages[i].type
+            baseImageSelectOptions.push(selectOption)
+        }
+
+        return baseImageSelectOptions;
+    }
+
+    async getDependencyOptions(language: string): Promise<SelectOptionsType[]> {
+        const dependencies = await this.questionOptionsAccessor.getDependenciesByLanguageName(language);
+
+        let dependencySelectOptions = [] as SelectOptionsType[]
+
+        for (let i = 0; i < dependencies.length; i++) {
+            let selectOption = {} as SelectOptionsType
+            selectOption.value = dependencies[i].name
+            dependencySelectOptions.push(selectOption)
+        }
+
+        return dependencySelectOptions;
     }
 
 }

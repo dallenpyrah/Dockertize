@@ -1,9 +1,9 @@
 export type UserResponseType = {
     language: string;
-    languageVersion: string;
-    framework: string;
-    workingDirectory: string;
-    filesToCopy: string;
-    exposedPorts: string;
-    frameworkVersion: string;
+    copyFiles: string;
+    environmentVariables: string;
+    ports: string;
+    entryPoint: string;
+    dependencies: string;
+    baseImage: string;
 }
