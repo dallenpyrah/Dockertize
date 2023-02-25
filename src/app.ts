@@ -20,19 +20,23 @@ async function main() {
 
     const userResponse = {} as UserResponseType;
 
-    const projectOptions = await questionOptionsManager.getLanguageSelectOptions();
-    userResponse.language = await questionsManager.askProjectLanguageQuestion(projectOptions);
+    const languageOptions = await questionOptionsManager.getLanguageSelectOptions();
+    userResponse.language = await questionsManager.askProjectLanguageQuestion(languageOptions);
 
-    const frameworkOptions = await questionOptionsManager.getFrameworkSelectOptionsByLanguageType(userResponse.language)
-    userResponse.framework = await questionsManager.askProjectFrameworkQuestion(frameworkOptions);
-    userResponse.frameworkVersion = await questionsManager.askFrameworkVersionQuestion();
+    const baseImages = await questionOptionsManager.getBaseImageSelectOptions(userResponse.language);
+    userResponse.baseImage = await questionsManager.askBaseImageQuestion(baseImages);
 
-    userResponse.workingDirectory = await questionsManager.askWorkingDirectoryQuestion();
-    userResponse.exposedPorts = await  questionsManager.askExposedPortsQuestion()
+    const dependencyOptions = await questionOptionsManager.getDependencyOptions(userResponse.language);
+    userResponse.dependencies = await questionsManager.askDependenciesQuestion(dependencyOptions);
+
+    userResponse.entryPoint = await questionsManager.askEntryPointQuestion();
+    userResponse.ports = await questionsManager.askPortsQuestion();
+
+    userResponse.environmentVariables = await questionsManager.askEnvironmentVariablesQuestion();
+    userResponse.copyFiles = await questionsManager.askCopyFilesQuestion();
 
     const createDockerFilePrompt = promptGenerationManager.generateCreateDockerFilePrompt(userResponse);
-    const createDockerFileCompletion = await artificialResponseManager.generateDockerFileFromPrompt(createDockerFilePrompt)
-
+    const createDockerFileCompletion = await artificialResponseManager.generateDockerFileFromPrompt(createDockerFilePrompt);
     const filePath = await generateFileManager.createDockerFileFromString(createDockerFileCompletion);
 
     console.log(`\nGenerated Dockerfile: ${filePath} \n`);

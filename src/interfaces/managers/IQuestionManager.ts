@@ -1,11 +1,12 @@
 import {SelectOptionsType} from "../../types/SelectOptionsType";
 
 export interface IQuestionManager {
-    askProjectLanguageQuestion(projectOptions: SelectOptionsType[]) : Promise<string>
-    askProjectFrameworkQuestion(frameworkOptions: SelectOptionsType[]) : Promise<string>
-    askLanguageVersionQuestion(): Promise<string>
-    askWorkingDirectoryQuestion():  Promise<string>
-    askCopyFilesQuestion(): Promise<string>
-    askExposedPortsQuestion(): Promise<string>
-    askFrameworkVersionQuestion(): Promise<string>;
+    askBaseImageQuestion(language: any): Promise<any>;
+
+    askDependenciesQuestion(dependencyOptions: SelectOptionsType[]): Promise<any>;
+    askEntryPointQuestion(): Promise<any>;
+    askPortsQuestion(): Promise<any>;
+    askEnvironmentVariablesQuestion(): Promise<any>;
+    askCopyFilesQuestion(): Promise<string>;
+    askProjectLanguageQuestion(languageOptions: SelectOptionsType[]): Promise<any>;
 }

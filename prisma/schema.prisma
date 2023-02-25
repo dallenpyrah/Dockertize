@@ -11,17 +11,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model Language {
   id        Int        @id @default(sequence())
   language  String
-  frameworks Framework[]
+  baseImages BaseImage[]
+  dependencies Dependency[]
+  createdAt DateTime @default(now())
 }
 
-model Framework {
-  id          Int      @id @default(sequence())
-  framework   String
+model Dependency {
+  id        Int        @id @default(sequence())
+  name      String
   languageId  Int
   language    Language @relation(fields: [languageId], references: [id])
+  createdAt DateTime @default(now())
 }
 
+model BaseImage {
+  id        Int        @id @default(sequence())
+  type      String
+  languageId  Int
+  language    Language @relation(fields: [languageId], references: [id])
+  createdAt DateTime @default(now())
+}
 

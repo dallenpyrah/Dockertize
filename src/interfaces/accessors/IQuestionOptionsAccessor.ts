@@ -1,6 +1,8 @@
-import {Framework, Language} from "@prisma/client";
+import {BaseImage, Dependency, Language} from "@prisma/client"
+
 
 export interface IQuestionOptionsAccessor {
     getLanguages(): Promise<Language[]>
-    getFrameworksByLanguageType(language: string): Promise<Framework[]>
+    getBaseImagesByLanguageName(language: string): Promise<BaseImage[]>
+    getDependenciesByLanguageName(language: string): Promise<Dependency[]>
 }
