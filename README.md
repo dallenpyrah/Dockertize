@@ -94,6 +94,23 @@ Once you have Node.js installed, you can install Dockertize using npm:
 npm install -g dockertize
 ```
 
+- Once Dockertize is installed you will need to set your environment variables
+
+    - You will need to an OpenAI API key. You can get one for free by signing up here: [OpenAI][OpenAI-url]
+    - You will need a Postgres database. You can get one for free by signing up here: [CockroachDB][CockroachDB-url]
+
+Once you have your API key and database, you will need to run this command to set your environment variables:
+
+```
+dockertize-setup-env
+```
+
+After your environment variables are setup run this command to migrate the database:
+
+```
+dockertize-migrate
+```
+
 To use Dockertize, simply run the following command:
 
 ```
@@ -192,3 +209,5 @@ Project Link: [https://github.com/dallenpyrah/Dockertize](https://github.com/dal
 [Typescript-url]: https://www.typescriptlang.org
 [Prisma.p]: https://img.shields.io/badge/Prisma-Next--generation%20Node.js%20and%20TypeScript%20ORM-purple
 [Prisma-url]: https://www.prisma.io
+[OpenAI-url]: https://auth0.openai.com/u/signup/identifier?state=hKFo2SA3cF81X011V0pvZXA5T2M3aEV6dWRIT29TRXlyZFhfQ6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIFEyNFFxUFZhdjNZQ0R3NGo3UXNkR3RvaXVtZmNYbDlUo2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q
+[CockroachDB-url]: https://cockroachlabs.cloud/signup?referralId=9b5b5b5b-5b5b-5b5b-5b5b-5b5b5b5b5b5b

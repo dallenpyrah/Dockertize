@@ -4,20 +4,15 @@
   "description": "",
   "main": "app.js",
   "bin": {
-    "dockertize": "./dist/app.js"
-  },
-  "pkg": {
-    "assets": [
-      ".env",
-      "prisma/**/*"
-    ],
-    "scripts": [
-      "app.js"
-    ]
+    "dockertize": "./dist/src/app.js",
+    "dockertize-setup-env": "./dist/src/setup-env.js",
+    "dockertize-migrate": "./dist/src/migrate.js"
   },
   "scripts": {
     "build": "tsc",
-    "generate": "tsc && node dist/app.js",
+    "setup-env": "npm run build && node dist/src/setup-env.js",
+    "migrate": "npm run build && node dist/src/migrate.js",
+    "start": "npm run build && node dist/src/app.js",
     "test": "mocha --require ts-node/register test/**/*.test.ts"
   },
   "keywords": [],
