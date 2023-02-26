@@ -15,10 +15,10 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
     async getLanguageSelectOptions(): Promise<SelectOptionsType[]> {
         const languages = await this.questionOptionsAccessor.getLanguages();
 
-        let languageSelectOptions = [] as SelectOptionsType[]
+        const languageSelectOptions = [] as SelectOptionsType[]
 
         for (let i = 0; i < languages.length; i++){
-            let selectOption = {} as SelectOptionsType
+            const selectOption = {} as SelectOptionsType
             selectOption.value = languages[i].language
             languageSelectOptions.push(selectOption)
         }
@@ -29,10 +29,10 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
     async getBaseImageSelectOptions(language: string): Promise<SelectOptionsType[]> {
         const baseImages = await this.questionOptionsAccessor.getBaseImagesByLanguageName(language);
 
-        let baseImageSelectOptions = [] as SelectOptionsType[]
+        const baseImageSelectOptions = [] as SelectOptionsType[]
 
         for (let i = 0; i < baseImages.length; i++) {
-            let selectOption = {} as SelectOptionsType
+            const selectOption = {} as SelectOptionsType
             selectOption.value = baseImages[i].type
             baseImageSelectOptions.push(selectOption)
         }
@@ -43,14 +43,14 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
     async getDependencyOptions(language: string): Promise<SelectOptionsType[]> {
         const dependencies = await this.questionOptionsAccessor.getDependenciesByLanguageName(language);
 
-        let dependencySelectOptions = [] as SelectOptionsType[]
-        let noneSelectOption = {} as SelectOptionsType
+        const dependencySelectOptions = [] as SelectOptionsType[]
+        const noneSelectOption = {} as SelectOptionsType
         noneSelectOption.value = 'N/A'
 
         dependencySelectOptions.push(noneSelectOption)
 
         for (let i = 0; i < dependencies.length; i++) {
-            let selectOption = {} as SelectOptionsType
+            const selectOption = {} as SelectOptionsType
             selectOption.value = dependencies[i].name
             dependencySelectOptions.push(selectOption)
         }

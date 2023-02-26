@@ -43,7 +43,7 @@ export class QuestionManager implements IQuestionManager {
         const response = <string>await text({
             message: 'What is the entry point for your project?',
             validate: (input: string) => {
-                if (!input) {
+                if (input.trim() === '') {
                     return 'Entry point cannot be left blank';
                 }
                 return undefined;
@@ -58,7 +58,7 @@ export class QuestionManager implements IQuestionManager {
             message: 'What port(s) does your application listen on?',
             placeholder: 'N/A',
             validate: (input: string) => {
-                if (!input) {
+                if (input.trim() === '') {
                     return 'Port(s) cannot be left blank';
                 }
                 return undefined;
@@ -97,7 +97,7 @@ export class QuestionManager implements IQuestionManager {
             message: 'Which files/folders do you want to copy into the Docker container? (comma delimited list)',
             placeholder: 'N/A',
             validate: (input: string) => {
-                if (!input) {
+                if (input.trim() === '') {
                     return 'Files/folders list cannot be left blank';
                 }
                 return undefined;
