@@ -17,7 +17,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "generate": "tsc && node dist/app.js"
+    "generate": "tsc && node dist/app.js",
+    "test": "mocha --require ts-node/register test/**/*.test.ts"
   },
   "keywords": [],
   "author": "",
@@ -50,5 +51,13 @@
   "bugs": {
     "url": "https://github.com/dallenpyrah/DockerIt/issues"
   },
-  "homepage": "https://github.com/dallenpyrah/DockerIt#readme"
+  "homepage": "https://github.com/dallenpyrah/DockerIt#readme",
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/sinon": "^10.0.13",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "sinon": "^15.0.1"
+  }
 }
