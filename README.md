@@ -94,23 +94,6 @@ Once you have Node.js installed, you can install Dockertize using npm:
 npm install -g dockertize
 ```
 
-- Once Dockertize is installed you will need to set your environment variables
-
-    - You will need to an OpenAI API key. You can get one for free by signing up here: [OpenAI][OpenAI-url]
-    - You will need a Postgres database. You can get one for free by signing up here: [CockroachDB][CockroachDB-url]
-
-Once you have your API key and database, you will need to run this command to set your environment variables:
-
-```
-dockertize-setup-env
-```
-
-After your environment variables are setup run this command to migrate the database:
-
-```
-dockertize-migrate
-```
-
 To use Dockertize, simply run the following command:
 
 ```

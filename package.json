@@ -1,12 +1,10 @@
 {
   "name": "dockertize",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "app.js",
   "bin": {
-    "dockertize": "./dist/src/app.js",
-    "dockertize-setup-env": "./dist/src/setup-env.js",
-    "dockertize-migrate": "./dist/src/migrate.js"
+    "dockertize": "./dist/src/app.js"
   },
   "scripts": {
     "build": "tsc",
