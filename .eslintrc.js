@@ -29,10 +29,6 @@ module.exports = {
                 'ignores': ['modules']
             }
         ],
-        'node/no-unpublished-import': [
-            'error', {
-                'allowModules': ['src'] // add any additional directories you want to allow here
-            }
-        ],
+        'node/no-unpublished-import': 'off',
     }
 };
