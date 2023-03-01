@@ -132,6 +132,354 @@
           "languageId": 2
         }
       ]
+    },
+    {
+      "id": 3,
+      "language": "C#",
+      "createdAt": "2023-03-01T10:00:00.000Z",
+      "baseImages": [
+        {
+          "id": 1,
+          "type": "mcr.microsoft.com/dotnet/sdk:6.0",
+          "languageId": 3
+        },
+        {
+          "id": 2,
+          "type": "mcr.microsoft.com/dotnet/runtime:6.0",
+          "languageId": 3
+        },
+        {
+          "id": 3,
+          "type": "mcr.microsoft.com/dotnet/sdk:5.0",
+          "languageId": 3
+        },
+        {
+          "id": 4,
+          "type": "mcr.microsoft.com/dotnet/runtime:5.0",
+          "languageId": 3
+        },
+        {
+          "id": 5,
+          "type": "mcr.microsoft.com/dotnet/sdk:3.1",
+          "languageId": 3
+        },
+        {
+          "id": 6,
+          "type": "mcr.microsoft.com/dotnet/runtime:3.1",
+          "languageId": 3
+        }
+      ],
+      "dependencies": [
+        {
+          "id": 1,
+          "name": "NuGet",
+          "languageId": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "language": "Go",
+      "createdAt": "2023-03-01T10:00:00.000Z",
+      "baseImages": [
+        {
+          "id": 1,
+          "type": "golang:latest",
+          "languageId": 4
+        },
+        {
+          "id": 2,
+          "type": "golang:1.17-alpine",
+          "languageId": 4
+        },
+        {
+          "id": 3,
+          "type": "golang:1.17-stretch",
+          "languageId": 4
+        },
+        {
+          "id": 4,
+          "type": "golang:1.16-alpine",
+          "languageId": 4
+        },
+        {
+          "id": 4,
+          "type": "golang:1.16-stretch",
+          "languageId": 4
+        },
+        {
+          "id": 6,
+          "type": "golang:1.15-alpine",
+          "languageId": 4
+        },
+        {
+          "id": 7,
+          "type": "golang:1.15-stretch",
+          "languageId": 4
+        },
+        {
+          "id": 8,
+          "type": "golang:1.14-alpine",
+          "languageId": 4
+        },
+        {
+          "id": 9,
+          "type": "golang:1.14-stretch",
+          "languageId": 4
+        },
+        {
+          "id": 10,
+          "type": "golang:1.13-alpine",
+          "languageId": 4
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": 5,
+      "language": "Ruby",
+      "createdAt": "2023-03-01T10:00:00.000Z",
+      "baseImages": [
+        {
+          "id": 1,
+          "type": "ruby:latest",
+          "languageId": 5
+        },
+        {
+          "id": 2,
+          "type": "ruby:3.0-alpine",
+          "languageId": 5
+        },
+        {
+          "id": 3,
+          "type": "ruby:3.0-slim",
+          "languageId": 5
+        },
+        {
+          "id": 4,
+          "type": "ruby:2.7-alpine",
+          "languageId": 5
+        },
+        {
+          "id": 5,
+          "type": "ruby:2.7-slim",
+          "languageId": 5
+        },
+        {
+          "id": 6,
+          "type": "ruby:2.6-alpine",
+          "languageId": 5
+        },
+        {
+          "id": 7,
+          "type": "ruby:2.6-slim",
+          "languageId": 5
+        },
+        {
+          "id": 8,
+          "type": "ruby:2.5-alpine",
+          "languageId": 5
+        },
+        {
+          "id": 9,
+          "type": "ruby:2.5-slim",
+          "languageId": 5
+        },
+        {
+          "id": 10,
+          "type": "ruby:2.4-alpine",
+          "languageId": 5
+        }
+      ],
+      "dependencies": [
+        {
+          "id": 1,
+          "name": "Bundler",
+          "languageId": 5
+        },
+        {
+          "id": 2,
+          "name": "RubyGems",
+          "languageId": 5
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "language": "Kotlin",
+      "createdAt": "2023-03-01T10:00:00.000Z",
+      "baseImages": [
+        {
+          "id": 1,
+          "type": "openjdk:latest",
+          "languageId": 6
+        },
+        {
+          "id": 2,
+          "type": "openjdk:11-jdk-slim",
+          "languageId": 6
+        },
+        {
+          "id": 3,
+          "type": "openjdk:11-jre-slim",
+          "languageId": 6
+        },
+        {
+          "id": 4,
+          "type": "openjdk:8-jdk-slim",
+          "languageId": 6
+        },
+        {
+          "id": 5,
+          "type": "openjdk:8-jre-slim",
+          "languageId": 6
+        }
+      ],
+      "dependencies": [
+        {
+          "id": 1,
+          "name": "Gradle",
+          "languageId": 6
+        },
+        {
+          "id": 2,
+          "name": "Maven",
+          "languageId": 6
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "language": "PHP",
+      "createdAt": "2023-03-01T10:00:00.000Z",
+      "baseImages": [
+        {
+          "id": 1,
+          "type": "php:latest",
+          "languageId": 6
+        },
+        {
+          "id": 2,
+          "type": "php:8.1-cli",
+          "languageId": 6
+        },
+        {
+          "id": 3,
+          "type": "php:8.1-fpm",
+          "languageId": 6
+        },
+        {
+          "id": 4,
+          "type": "php:8.0-cli",
+          "languageId": 6
+        },
+        {
+          "id": 5,
+          "type": "php:8.0-fpm",
+          "languageId": 6
+        },
+        {
+          "id": 6,
+          "type": "php:7.4-cli",
+          "languageId": 6
+        },
+        {
+          "id": 7,
+          "type": "php:7.4-fpm",
+          "languageId": 6
+        },
+        {
+          "id": 8,
+          "type": "php:7.3-cli",
+          "languageId": 6
+        },
+        {
+          "id": 9,
+          "type": "php:7.3-fpm",
+          "languageId": 6
+        },
+        {
+          "id": 10,
+          "type": "php:7.2-cli",
+          "languageId": 6
+        }
+      ],
+      "dependencies": [
+        {
+          "id": 1,
+          "name": "Composer",
+          "languageId": 6
+        },
+        {
+          "id": 2,
+          "name": "PEAR",
+          "languageId": 6
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "language": "Rust",
+      "createdAt": "2023-03-01T10:00:00.000Z",
+      "baseImages": [
+        {
+          "id": 1,
+          "type": "rust:latest",
+          "languageId": 8
+        },
+        {
+          "id": 2,
+          "type": "rust:1.56-alpine",
+          "languageId": 8
+        },
+        {
+          "id": 3,
+          "type": "rust:1.56-slim",
+          "languageId": 8
+        },
+        {
+          "id": 4,
+          "type": "rust:1.55-alpine",
+          "languageId": 8
+        },
+        {
+          "id": 5,
+          "type": "rust:1.55-slim",
+          "languageId": 8
+        },
+        {
+          "id": 6,
+          "type": "rust:1.54-alpine",
+          "languageId": 8
+        },
+        {
+          "id": 7,
+          "type": "rust:1.54-slim",
+          "languageId": 8
+        },
+        {
+          "id": 8,
+          "type": "rust:1.53-alpine",
+          "languageId": 8
+        },
+        {
+          "id": 9,
+          "type": "rust:1.53-slim",
+          "languageId": 8
+        },
+        {
+          "id": 10,
+          "type": "rust:1.52-alpine",
+          "languageId": 8
+        }
+      ],
+      "dependencies": [
+        {
+          "id": 1,
+          "name": "cargo",
+          "languageId": 8
+        }
+      ]
     }
   ]
 }
