@@ -8,10 +8,8 @@ const rl = readline.createInterface({
 });
 
 rl.question('Enter your OpenAI API key: ', (openaiApiKey) => {
-    rl.question('Enter your database URL: ', (databaseUrl) => {
-        const envData = `OPENAI_API_KEY=${openaiApiKey}\nDATABASE_URL=${databaseUrl}`;
-        fs.writeFileSync('.env', envData);
-        console.log('Environment variables set!');
-        rl.close();
-    });
+    const envData = `OPENAI_API_KEY=${openaiApiKey}`;
+    fs.writeFileSync('.env', envData);
+    console.log('Environment variable set!');
+    rl.close();
 });

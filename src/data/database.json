@@ -1,0 +1,137 @@
+{
+  "languages": [
+    {
+      "id": 1,
+      "language": "JavaScript",
+      "createdAt": "2023-02-26T10:00:00.000Z",
+      "baseImages": [
+        {
+          "id": 1,
+          "type": "node:latest",
+          "languageId": 1
+        },
+        {
+          "id": 2,
+          "type": "node:alpine",
+          "languageId": 1
+        },
+        {
+          "id": 4,
+          "type": "node:16",
+          "languageId": 1
+        },
+        {
+          "id": 5,
+          "type": "node:16-alpine",
+          "languageId": 1
+        },
+        {
+          "id": 6,
+          "type": "node:15",
+          "languageId": 1
+        },
+        {
+          "id": 7,
+          "type": "node:15-alpine",
+          "languageId": 1
+        },
+        {
+          "id": 8,
+          "type": "node:14",
+          "languageId": 1
+        },
+        {
+          "id": 9,
+          "type": "node:14-alpine",
+          "languageId": 1
+        },
+        {
+          "id": 10,
+          "type": "node:12",
+          "languageId": 1
+        }
+      ],
+      "dependencies": [
+        {
+          "id": 1,
+          "name": "npm",
+          "languageId": 1
+        },
+        {
+          "id": 2,
+          "name": "yarn",
+          "languageId": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "language": "Python",
+      "createdAt": "2023-03-01T10:00:00.000Z",
+      "baseImages": [
+        {
+          "id": 1,
+          "type": "python:latest",
+          "languageId": 2
+        },
+        {
+          "id": 2,
+          "type": "python:3.10-alpine",
+          "languageId": 2
+        },
+        {
+          "id": 3,
+          "type": "python:3.10-slim",
+          "languageId": 2
+        },
+        {
+          "id": 4,
+          "type": "python:3.9-alpine",
+          "languageId": 2
+        },
+        {
+          "id": 5,
+          "type": "python:3.9-slim",
+          "languageId": 2
+        },
+        {
+          "id": 6,
+          "type": "python:3.8-alpine",
+          "languageId": 2
+        },
+        {
+          "id": 7,
+          "type": "python:3.8-slim",
+          "languageId": 2
+        },
+        {
+          "id": 8,
+          "type": "python:3.7-alpine",
+          "languageId": 2
+        },
+        {
+          "id": 9,
+          "type": "python:3.7-slim",
+          "languageId": 2
+        },
+        {
+          "id": 10,
+          "type": "python:3.6-alpine",
+          "languageId": 2
+        }
+      ],
+      "dependencies": [
+        {
+          "id": 1,
+          "name": "pip",
+          "languageId": 2
+        },
+        {
+          "id": 2,
+          "name": "setuptools",
+          "languageId": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,38 +1,29 @@
-import {BaseImage, Dependency, Language} from "@prisma/client";
-import {PrismaClient} from "@prisma/client";
-import {IQuestionOptionsAccessor} from "../interfaces/accessors/IQuestionOptionsAccessor";
+import { IQuestionOptionsAccessor } from "../interfaces/accessors/IQuestionOptionsAccessor";
 import {inject, injectable} from "inversify";
-import {TYPES} from "../inversify/Types";
+import {Language} from "../types/Language";
+import {BaseImage} from "../types/BaseImage";
+import {Dependency} from "../types/Dependency";
+import languagesData from "../data/database.json";
 
 @injectable()
 export class QuestionOptionsAccessor implements IQuestionOptionsAccessor {
-    private readonly prisma: PrismaClient;
-
-    constructor(@inject(TYPES.PrismaClient) prisma: PrismaClient) {
-        this.prisma = prisma;
+    getBaseImagesByLanguageName(language: string): BaseImage[] {
+        const lang = languagesData.languages.find((lang) => lang.language === language);
+        if (!lang) {
+            return [];
+        }
+        return lang.baseImages as unknown as BaseImage[];
     }
 
-    async getLanguages(): Promise<Language[]> {
-        return await this.prisma.language.findMany();
+    getDependenciesByLanguageName(language: string): Dependency[] {
+        const lang = languagesData.languages.find((lang) => lang.language === language);
+        if (!lang) {
+            return [];
+        }
+        return lang.dependencies as unknown as Dependency[];
     }
 
-    async getBaseImagesByLanguageName(language: string): Promise<BaseImage[]> {
-        return await this.prisma.baseImage.findMany({
-            where : {
-                language: {
-                    language
-                }
-            }
-        })
-    }
-
-    async getDependenciesByLanguageName(language: string): Promise<Dependency[]> {
-        return await this.prisma.dependency.findMany({
-            where : {
-                language: {
-                    language
-                }
-            }
-        })
+    getLanguages(): Language[] {
+        return languagesData.languages as unknown as Language[]
     }
 }
