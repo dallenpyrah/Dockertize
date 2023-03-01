@@ -8,3 +8,4 @@ export const TYPES = {
     ArtificialResponseManager: Symbol.for('ArtificialResponseManager'),
     GenerateFileManager: Symbol.for('GenerateFileManager')
 }
+

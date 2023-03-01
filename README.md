@@ -94,7 +94,15 @@ Once you have Node.js installed, you can install Dockertize using npm:
 npm install -g dockertize
 ```
 
-To use Dockertize, simply run the following command:
+You will need to an OpenAI API key. You can get one for free by signing up here: [OpenAI][OpenAI-url]
+
+Once you have your API key, you will need to run this command to set the environment variable:
+
+```
+dockertize-setup-env
+```
+
+Once your API key is set up, to use Dockertize simply run the following command:
 
 ```
 dockertize

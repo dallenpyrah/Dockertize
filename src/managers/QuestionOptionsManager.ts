@@ -12,8 +12,8 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
         this.questionOptionsAccessor = questionOptionsAccessor;
     }
 
-    async getLanguageSelectOptions(): Promise<SelectOptionsType[]> {
-        const languages = await this.questionOptionsAccessor.getLanguages();
+    getLanguageSelectOptions(): SelectOptionsType[] {
+        const languages = this.questionOptionsAccessor.getLanguages();
 
         const languageSelectOptions = [] as SelectOptionsType[]
 
@@ -26,8 +26,8 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
         return languageSelectOptions;
     }
 
-    async getBaseImageSelectOptions(language: string): Promise<SelectOptionsType[]> {
-        const baseImages = await this.questionOptionsAccessor.getBaseImagesByLanguageName(language);
+    getBaseImageSelectOptions(language: string): SelectOptionsType[] {
+        const baseImages = this.questionOptionsAccessor.getBaseImagesByLanguageName(language);
 
         const baseImageSelectOptions = [] as SelectOptionsType[]
 
@@ -40,8 +40,8 @@ export class QuestionOptionsManager implements  IQuestionOptionsManager {
         return baseImageSelectOptions;
     }
 
-    async getDependencyOptions(language: string): Promise<SelectOptionsType[]> {
-        const dependencies = await this.questionOptionsAccessor.getDependenciesByLanguageName(language);
+    getDependencyOptions(language: string): SelectOptionsType[] {
+        const dependencies = this.questionOptionsAccessor.getDependenciesByLanguageName(language);
 
         const dependencySelectOptions = [] as SelectOptionsType[]
         const noneSelectOption = {} as SelectOptionsType

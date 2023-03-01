@@ -6,7 +6,6 @@ import {UserResponseType} from "../types/UserResponseType";
 export class PromptGenerationManager implements IPromptGenerationManager {
     generateCreateDockerFilePrompt(userResponse: UserResponseType): string {
         return `Please generate a Dockerfile for a project written in ${userResponse.language}, using ${userResponse.baseImage} as the base image.
-            The project has the following dependencies: ${userResponse.dependencies}, make sure to install them in the container as they will be needed apart from the already pre-defined packages.
             Please include the following ports in the Dockerfile: ${userResponse.ports}, if equal to N/A do not specify a port.
             Please set the following environment variables ONLY IF it is not equal to N/A: ${userResponse.environmentVariables}, if equal to N/A do not add env variables or the ENV keyword.
             Please copy the following files/folders into the Docker container: ${userResponse.copyFiles}, if equal to N/A do not copy any extra files besides what is necessary.

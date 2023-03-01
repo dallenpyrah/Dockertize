@@ -41,10 +41,10 @@ export class QuestionManager implements IQuestionManager {
 
     async askEntryPointQuestion(): Promise<string> {
         const response = <string>await text({
-            message: 'What is the entry point for your project?',
+            message: 'What is the command to start your project?',
             validate: (input: string) => {
                 if (input.trim() === '') {
-                    return 'Entry point cannot be left blank';
+                    return 'Command cannot be left blank';
                 }
                 return undefined;
             },
@@ -56,13 +56,7 @@ export class QuestionManager implements IQuestionManager {
     async askPortsQuestion(): Promise<string> {
         const response = <string>await text({
             message: 'What port(s) does your application listen on?',
-            placeholder: 'N/A',
-            validate: (input: string) => {
-                if (input.trim() === '') {
-                    return 'Port(s) cannot be left blank';
-                }
-                return undefined;
-            },
+            defaultValue: 'N/A',
         });
 
         return response.trim();
@@ -71,13 +65,7 @@ export class QuestionManager implements IQuestionManager {
     async askEnvironmentVariablesQuestion(): Promise<string> {
         const response = <string>await text({
             message: 'What environment variables does your application use? (comma delimited list)',
-            placeholder: 'N/A',
-            validate: (input: string) => {
-                if (input.trim() === '') {
-                    return 'Environment variables list cannot be left blank';
-                }
-                return undefined;
-            },
+            defaultValue: 'N/A',
         });
 
         return response.trim() === 'N/A' ? '' : response.trim();
@@ -95,13 +83,7 @@ export class QuestionManager implements IQuestionManager {
     async askCopyFilesQuestion(): Promise<string> {
         const response = <string> await text({
             message: 'Which files/folders do you want to copy into the Docker container? (comma delimited list)',
-            placeholder: 'N/A',
-            validate: (input: string) => {
-                if (input.trim() === '') {
-                    return 'Files/folders list cannot be left blank';
-                }
-                return undefined;
-            },
+            defaultValue: 'N/A',
         });
         return response.trim();
     }

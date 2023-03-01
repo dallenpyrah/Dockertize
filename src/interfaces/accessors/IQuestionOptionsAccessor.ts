@@ -1,8 +1,9 @@
-import {BaseImage, Dependency, Language} from "@prisma/client"
-
+import {Language} from "../../types/Language";
+import {BaseImage} from "../../types/BaseImage";
+import {Dependency} from "../../types/Dependency";
 
 export interface IQuestionOptionsAccessor {
-    getLanguages(): Promise<Language[]>
-    getBaseImagesByLanguageName(language: string): Promise<BaseImage[]>
-    getDependenciesByLanguageName(language: string): Promise<Dependency[]>
+    getLanguages(): Language[]
+    getBaseImagesByLanguageName(language: string): BaseImage[]
+    getDependenciesByLanguageName(language: string): Dependency[]
 }
