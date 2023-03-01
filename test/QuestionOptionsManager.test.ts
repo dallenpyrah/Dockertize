@@ -12,7 +12,7 @@ describe("QuestionOptionsManager", () => {
     describe("getLanguageSelectOptions", () => {
         it("should return empty array if no languages", async () => {
             questionOptionsAccessor = {
-                getLanguages: sinon.stub().resolves([]),
+                getLanguages: sinon.stub().returns([]),
                 getBaseImagesByLanguageName: sinon.stub(),
                 getDependenciesByLanguageName: sinon.stub()
             }
@@ -21,13 +21,13 @@ describe("QuestionOptionsManager", () => {
 
             const expected: SelectOptionsType[] = [];
 
-            const actual = await questionOptionsManager.getLanguageSelectOptions();
+            const actual = questionOptionsManager.getLanguageSelectOptions();
             expect(actual).to.deep.equal(expected);
         });
 
         it("should return select options for languages", async () => {
             questionOptionsAccessor = {
-                getLanguages: sinon.stub().resolves([
+                getLanguages: sinon.stub().returns([
                     {language: "english"},
                     {language: "french"}
                 ]),
@@ -42,13 +42,13 @@ describe("QuestionOptionsManager", () => {
                 {value: "french"}
             ];
 
-            const actual = await questionOptionsManager.getLanguageSelectOptions();
+            const actual = questionOptionsManager.getLanguageSelectOptions();
             expect(actual).to.deep.equal(expected);
         });
 
         it("should return select options for languages without hints", async () => {
             questionOptionsAccessor = {
-                getLanguages: sinon.stub().resolves([
+                getLanguages: sinon.stub().returns([
                     {language: "english", hint: "hint1"},
                     {language: "french", hint: "hint2"}
                 ]),
@@ -63,13 +63,13 @@ describe("QuestionOptionsManager", () => {
                 {value: "french"}
             ];
 
-            const actual = await questionOptionsManager.getLanguageSelectOptions();
+            const actual = questionOptionsManager.getLanguageSelectOptions();
             expect(actual).to.deep.equal(expected);
         });
 
         it("should return select options for languages without labels", async () => {
             questionOptionsAccessor = {
-                getLanguages: sinon.stub().resolves([
+                getLanguages: sinon.stub().returns([
                     {language: "english", label: "label1"},
                     {language: "french", label: "label2"}
                 ]),
@@ -84,7 +84,7 @@ describe("QuestionOptionsManager", () => {
                 {value: "french"}
             ];
 
-            const actual = await questionOptionsManager.getLanguageSelectOptions();
+            const actual = questionOptionsManager.getLanguageSelectOptions();
             expect(actual).to.deep.equal(expected);
         });
     });
@@ -93,7 +93,7 @@ describe("QuestionOptionsManager", () => {
         it('should return empty array if no base images exist', async () => {
             questionOptionsAccessor = {
                 getLanguages: sinon.stub(),
-                getBaseImagesByLanguageName: sinon.stub().resolves([]),
+                getBaseImagesByLanguageName: sinon.stub().returns([]),
                 getDependenciesByLanguageName: sinon.stub()
             }
 
@@ -101,14 +101,14 @@ describe("QuestionOptionsManager", () => {
 
             const expected: SelectOptionsType[] = [];
 
-            const actual = await questionOptionsManager.getBaseImageSelectOptions("english");
+            const actual = questionOptionsManager.getBaseImageSelectOptions("english");
             expect(actual).to.deep.equal(expected);
         });
 
         it("should return select options for base images", async () => {
             questionOptionsAccessor = {
                 getLanguages: sinon.stub(),
-                getBaseImagesByLanguageName: sinon.stub().resolves([
+                getBaseImagesByLanguageName: sinon.stub().returns([
                     {type: "type1"},
                     {type: "type2"}
                 ]),
@@ -122,14 +122,14 @@ describe("QuestionOptionsManager", () => {
                 {value: "type2"}
             ];
 
-            const actual = await questionOptionsManager.getBaseImageSelectOptions("english");
+            const actual = questionOptionsManager.getBaseImageSelectOptions("english");
             expect(actual).to.deep.equal(expected);
         });
 
         it("should return select options for base images without hints", async () => {
             questionOptionsAccessor = {
                 getLanguages: sinon.stub(),
-                getBaseImagesByLanguageName: sinon.stub().resolves([
+                getBaseImagesByLanguageName: sinon.stub().returns([
                     {type: "type1", hint: "hint1"},
                     {type: "type2", hint: "hint2"}
                 ]),
@@ -143,14 +143,14 @@ describe("QuestionOptionsManager", () => {
                 {value: "type2"}
             ];
 
-            const actual = await questionOptionsManager.getBaseImageSelectOptions("english");
+            const actual = questionOptionsManager.getBaseImageSelectOptions("english");
             expect(actual).to.deep.equal(expected);
         });
 
         it("should return select options for base images without labels", async () => {
             questionOptionsAccessor = {
                 getLanguages: sinon.stub(),
-                getBaseImagesByLanguageName: sinon.stub().resolves([
+                getBaseImagesByLanguageName: sinon.stub().returns([
                     {type: "type1", label: "label1"},
                     {type: "type2", label: "label2"}
                 ]),
@@ -164,7 +164,7 @@ describe("QuestionOptionsManager", () => {
                 {value: "type2"}
             ];
 
-            const actual = await questionOptionsManager.getBaseImageSelectOptions("english");
+            const actual = questionOptionsManager.getBaseImageSelectOptions("english");
             expect(actual).to.deep.equal(expected);
         });
     });
@@ -174,7 +174,7 @@ describe("QuestionOptionsManager", () => {
             questionOptionsAccessor = {
                 getLanguages: sinon.stub(),
                 getBaseImagesByLanguageName: sinon.stub(),
-                getDependenciesByLanguageName: sinon.stub().resolves([])
+                getDependenciesByLanguageName: sinon.stub().returns([])
             }
 
             questionOptionsManager = new QuestionOptionsManager(questionOptionsAccessor);
@@ -183,7 +183,7 @@ describe("QuestionOptionsManager", () => {
                 {value: "N/A"}
             ];
 
-            const actual = await questionOptionsManager.getDependencyOptions("english");
+            const actual = questionOptionsManager.getDependencyOptions("english");
             expect(actual).to.deep.equal(expected);
         });
 
@@ -191,7 +191,7 @@ describe("QuestionOptionsManager", () => {
             questionOptionsAccessor = {
                 getLanguages: sinon.stub(),
                 getBaseImagesByLanguageName: sinon.stub(),
-                getDependenciesByLanguageName: sinon.stub().resolves([
+                getDependenciesByLanguageName: sinon.stub().returns([
                     {name: "dependency1"},
                     {name: "dependency2"}
                 ])
@@ -205,7 +205,7 @@ describe("QuestionOptionsManager", () => {
                 {value: "dependency2"}
             ];
 
-            const actual = await questionOptionsManager.getDependencyOptions("english");
+            const actual = questionOptionsManager.getDependencyOptions("english");
             expect(actual).to.deep.equal(expected);
         });
 
@@ -213,7 +213,7 @@ describe("QuestionOptionsManager", () => {
             questionOptionsAccessor = {
                 getLanguages: sinon.stub(),
                 getBaseImagesByLanguageName: sinon.stub(),
-                getDependenciesByLanguageName: sinon.stub().resolves([
+                getDependenciesByLanguageName: sinon.stub().returns([
                     {name: "dependency1", hint: "hint1"},
                     {name: "dependency2", hint: "hint2"}
                 ])
@@ -227,7 +227,7 @@ describe("QuestionOptionsManager", () => {
                 {value: "dependency2"}
             ];
 
-            const actual = await questionOptionsManager.getDependencyOptions("english");
+            const actual = questionOptionsManager.getDependencyOptions("english");
             expect(actual).to.deep.equal(expected);
         });
 
@@ -235,7 +235,7 @@ describe("QuestionOptionsManager", () => {
             questionOptionsAccessor = {
                 getLanguages: sinon.stub(),
                 getBaseImagesByLanguageName: sinon.stub(),
-                getDependenciesByLanguageName: sinon.stub().resolves([
+                getDependenciesByLanguageName: sinon.stub().returns([
                     {name: "dependency1", label: "label1"},
                     {name: "dependency2", label: "label2"}
                 ])
@@ -249,7 +249,7 @@ describe("QuestionOptionsManager", () => {
                 {value: "dependency2"}
             ];
 
-            const actual = await questionOptionsManager.getDependencyOptions("english");
+            const actual = questionOptionsManager.getDependencyOptions("english");
             expect(actual).to.deep.equal(expected);
         });
     });
