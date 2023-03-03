@@ -13,15 +13,20 @@ export class ArtificialResponseManager implements IArtificialResponseManager{
     }
 
     async generateDockerFileFromPrompt(createDockerFilePrompt: string): Promise<string | undefined> {
-        const response =  await openai.createCompletion({
-             model: "text-davinci-003",
-             prompt: createDockerFilePrompt,
-             max_tokens: 1024,
+        const response =  await openai.createChatCompletion({
+             model: "gpt-3.5-turbo",
+             messages: [
+                    {
+                        role: "user",
+                        content: createDockerFilePrompt,
+                    }
+                ],
+             max_tokens: 3500,
              n: 1,
-             temperature: 0.5,
+             temperature: 0.3,
          });
 
-        return response.data.choices[0].text;
+        return response.data.choices[0].message?.content.trimLeft();
     }
 
 

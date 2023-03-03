@@ -45,6 +45,7 @@ async function main() {
 
         outro(filePath)
     } catch (e) {
+        console.error(e)
         spin.stop('There was an error while generating your Dockerfile. Please try again.')
     }
 }

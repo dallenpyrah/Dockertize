@@ -1,5 +1,3 @@
-<a name="readme-top"></a>
-
 > Empower your dev workflow with AI generated Dockerfiles
 
 [![Contributors][contributors-shield]][contributors-url]
