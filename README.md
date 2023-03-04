@@ -173,7 +173,6 @@ Project Link: [https://github.com/dallenpyrah/Dockertize](https://github.com/dal
 
 * [Clack](https://github.com/natemoo-re/clack) - A big thank you to the developers of Clack for creating a powerful and user-friendly command-line interface tool that made it easy to build this project.
 * [OpenAI](https://openai.com) - We would like to acknowledge OpenAI for developing cutting-edge natural language processing technology that helped power our Dockerfile generating CLI!
-* [Prisma](https://github.com/prisma/prisma) - We would like to thank the developers of Prisma for creating an efficient and easy-to-use ORM tool that helped us streamline our database operations.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
